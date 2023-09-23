@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-dp
+  labels:
+    app: health-dp
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: docker-health
+  template:
+    metadata:
+      labels:
+        app: docker-health
+    spec:
+      containers:
+        - name: docker-health
+          image: vanyamn/health
+          ports:
+            - containerPort: 8000
+      imagePullSecrets:
+        - name: regcred
