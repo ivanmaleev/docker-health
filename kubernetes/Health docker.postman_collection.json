@@ -29,7 +29,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/v1"
+				"url": "http://arch.homework/api/v1"
 			},
 			"response": []
 		},
@@ -40,14 +40,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"johndoe589\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"bestjohn@doe.com\",\r\n  \"phone\": \"+71002003040\"\r\n}",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"johndoe589\",\r\n  \"firstName\": \"John2\",\r\n  \"lastName\": \"Doe2\",\r\n  \"email\": \"bestjohn@doe.com\",\r\n  \"phone\": \"+71002003040\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/v1"
+				"url": "http://arch.homework/api/v1"
 			},
 			"response": []
 		},
@@ -56,7 +56,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8000/api/v1/1"
+				"url": "http://arch.homework/api/v1/1"
 			},
 			"response": []
 		},
@@ -65,7 +65,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8000/api/v1/1"
+				"url": "http://arch.homework/api/v1/1"
 			},
 			"response": []
 		}
