@@ -1,0 +1,6 @@
+POST:
+curl -X POST -H "Content-Type: application/json" -d '{"username": "johndoe589", "firstName": "John", "lastName": "Doe", "email": "bestjohn@doe.com", "phone": "+71002003040"}' http://arch.homework/api/v1
+GET:
+curl http://arch.homework/api/v1/1
+DELETE:
+curl -X DELETE http://arch.homework/api/v1/1

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: health-cm
+data:
+  port: "8000"
+  databaseurl: "jdbc:h2:mem:testdb"

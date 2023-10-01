@@ -20,6 +20,27 @@ spec:
         - name: docker-health
           image: vanyamn/health
           ports:
-            - containerPort: 8000
+          - containerPort: 8000
+          env:
+          - name: HOST_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: health-cm
+                key: port
+          - name: DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: health-cm
+                key: databaseurl
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: health-secret
+                key: username    
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: health-secret
+                key: password   
       imagePullSecrets:
         - name: regcred
