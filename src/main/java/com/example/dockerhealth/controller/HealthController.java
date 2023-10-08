@@ -19,7 +19,7 @@ public class HealthController {
 
     @GetMapping("/health")
     public ResponseEntity<HealthDto> getHealthStatus() {
-        if (Objects.equals(random.nextInt(randomMax), randomMax - 1)) {
+        if (Objects.equals(random.nextInt(randomMax), 1)) {
             return ResponseEntity.internalServerError().build();
         }
         return ResponseEntity.ok(new HealthDto("OK"));

@@ -32,7 +32,7 @@ public class UserController {
 
     @PostMapping("")
     public ResponseEntity<User> create(@RequestBody User user) {
-        if (Objects.equals(random.nextInt(randomMax), randomMax - 1)) {
+        if (Objects.equals(random.nextInt(randomMax), 1)) {
             return ResponseEntity.internalServerError().build();
         }
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<User> get(@PathVariable Long userId) {
-        if (Objects.equals(random.nextInt(randomMax), randomMax - 1)) {
+        if (Objects.equals(random.nextInt(randomMax), 1)) {
             return ResponseEntity.internalServerError().build();
         }
         return new ResponseEntity<>(userRepository.findById(userId).orElseThrow(), HttpStatus.OK);
