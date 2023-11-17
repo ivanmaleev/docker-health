@@ -1,30 +1,11 @@
-package com.example.dockerhealth.entity;
+package com.example.dockerhealth.dto;
 
-import com.example.dockerhealth.dto.UserDto;
-import com.example.dockerhealth.enums.Role;
+import com.example.dockerhealth.entity.User;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Set;
 
-import static com.example.dockerhealth.enums.Role.ROLE_USER;
+public class UserDto implements Serializable {
 
-@Entity
-@Table(name = "User")
-public class User implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String password;
@@ -33,24 +14,17 @@ public class User implements Serializable {
     private String email;
     private String phone;
 
-    @Column(name = "role")
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "users_roles")
-    @Enumerated(value = EnumType.STRING)
-    private Set<Role> roles;
-
-    public User() {
+    public UserDto() {
     }
 
-    public User(UserDto userDto) {
-        this.id = userDto.getId();
-        this.username = userDto.getUsername();
-        this.password = userDto.getPassword();
-        this.firstName = userDto.getFirstName();
-        this.lastName = userDto.getLastName();
-        this.email = userDto.getEmail();
-        this.phone = userDto.getPhone();
-        this.roles = Set.of(ROLE_USER);
+    public UserDto(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.email = user.getEmail();
+        this.phone = user.getPhone();
     }
 
     public Long getId() {
@@ -109,17 +83,9 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDto{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -127,7 +93,6 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", roles=" + roles +
                 '}';
     }
 }
