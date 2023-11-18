@@ -7,65 +7,261 @@
 	},
 	"item": [
 		{
-			"name": "Health",
+			"name": "1) register 1",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://arch.homework/health"
-			},
-			"response": []
-		},
-		{
-			"name": "Post",
-			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"johndoe589\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"bestjohn@doe.com\",\r\n  \"phone\": \"+71002003040\"\r\n}",
+					"raw": "{\r\n    \"username\" : \"ivan\",\r\n    \"password\" : \"password\",\r\n    \"firstName\" : \"Ivan\",\r\n    \"lastName\" : \"Ivanov\",\r\n    \"email\" : \"a@a.ru\",\r\n    \"phone\" : \"02\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://arch.homework/api/v1"
+				"url": "http://arch.homework/api/v1/auth/register"
 			},
 			"response": []
 		},
 		{
-			"name": "Put",
+			"name": "2) profile 1",
 			"request": {
-				"method": "PUT",
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFuIiwiaWQiOjEsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJleHAiOjE3MDAyMjc2ODN9.lI9KoZxMQTwaVcUynYYV-Zy2sjUf3kBrQQ6yLqIGIOU",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "http://arch.homework/api/v1/user/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "3) login 1",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"johndoe589\",\r\n  \"firstName\": \"John2\",\r\n  \"lastName\": \"Doe2\",\r\n  \"email\": \"bestjohn@doe.com\",\r\n  \"phone\": \"+71002003040\"\r\n}",
+					"raw": "{\r\n    \"username\" : \"ivan\",\r\n    \"password\" : \"password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://arch.homework/api/v1"
+				"url": "http://arch.homework/api/v1/auth/login"
 			},
 			"response": []
 		},
 		{
-			"name": "Get",
+			"name": "4) update 1",
 			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFuIiwiaWQiOjEsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJleHAiOjE3MDAyMjcxNzB9.VdsIjOqqOSPF6AQbgo822vr0ektHB51mG3as6EmQ1lU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"ivan\",\r\n    \"password\" : \"password\",\r\n    \"firstName\" : \"Ivan2\",\r\n    \"lastName\" : \"Ivanov2\",\r\n    \"email\" : \"b@b.ru\",\r\n    \"phone\" : \"03\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://arch.homework/api/v1/user"
+			},
+			"response": []
+		},
+		{
+			"name": "5) profile 1",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFuIiwiaWQiOjEsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJleHAiOjE3MDAyMjc2ODN9.lI9KoZxMQTwaVcUynYYV-Zy2sjUf3kBrQQ6yLqIGIOU",
+						"type": "text"
+					}
+				],
+				"url": "http://arch.homework/api/v1/user/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "6) register 2",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"alex\",\r\n    \"password\" : \"Qwerty123\",\r\n    \"firstName\" : \"Alexandr\",\r\n    \"lastName\" : \"Petrov\",\r\n    \"email\" : \"alex@mail.ru\",\r\n    \"phone\" : \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://arch.homework/api/v1/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "7) login 2",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"alex\",\r\n    \"password\" : \"Qwerty123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://arch.homework/api/v1/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "8) profile 2",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFuIiwiaWQiOjEsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJleHAiOjE3MDAyMjc2ODN9.lI9KoZxMQTwaVcUynYYV-Zy2sjUf3kBrQQ6yLqIGIOU",
+						"type": "text"
+					}
+				],
+				"url": "http://arch.homework/api/v1/user/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
 				"method": "GET",
 				"header": [],
-				"url": "http://arch.homework/api/v1/1"
-			},
-			"response": []
-		},
-		{
-			"name": "Delete",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": "http://arch.homework/api/v1/1"
+				"url": "http://192.168.39.122:30797/health"
 			},
 			"response": []
 		}
